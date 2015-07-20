@@ -1,0 +1,24 @@
+<div class='row text-center'>
+  <h1>What question would you like to explore?</h1>
+</div>
+<div class='row text-center'>
+  <div class="columns large-12 text-center">
+      <label>
+        <textarea class='question-box' placeholder="If you could learn anything, what would it be?"></textarea>
+      </label>
+  </div>
+  <%= link_to "Submit", "#", class: "button sub" %>
+</div>
+<div class='row'>
+  <div class='columns large-12 large-centered horiz-line'>
+    <hr class="horiz-line">
+  </div>
+</div>
+<div class='row'>
+  <h3>Today's Top Questions:</h3>
+</div>
+<div class='row'>
+  <% @top_questions.each do |question| %>
+    <%= render 'question', question: question %>
+  <% end %>
+</div>

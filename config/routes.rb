@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'questions/new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -6,8 +8,9 @@ Rails.application.routes.draw do
   root 'users#new'
 
   resources :users do
-    resources :competencies, only: :index
+    resources :competencies, only: [:index, :new]
     resources :rhythms, only: :index
+    resources :questions, only: :new
   end
 
   # Example of regular route:

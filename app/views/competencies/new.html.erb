@@ -1,5 +1,5 @@
 <div class='row text-center'>
-  <h1>How do you learn best? (select 3)</h1>
+  <h1>Order them from most to least effective...</h1>
 </div>
 <div class='row'>
   <% @competencies.each do |competency| %>
@@ -8,5 +8,5 @@
 </div>
 <div class="columns small-12 large-12 medium-12 large-centered medium-centered small-centered  text-center">
   <!-- Add AJAX here to associate selections with the user -->
-  <%= link_to "Submit", new_user_competency_path, class: "button sub" %>
+  <%= link_to "Submit", user_rhythms_path, class: "button sub" %>
 </div>

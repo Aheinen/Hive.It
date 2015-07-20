@@ -25,3 +25,17 @@
 .fb-auth {
   margin-top: 2em;
 }
+
+.comps {
+  border: 1px black solid;
+}
+
+.sub {
+  margin-top: 2em;
+}
+
+.question-box {
+  margin-top: 3em;
+  height: 10em;
+}
+
