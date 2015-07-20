@@ -1,0 +1,11 @@
+<div class='row text-center'>
+  <h1>What is your learning Rhythm?</h1>
+</div>
+<div class='row'>
+  <% @rhythms.each do |rhythm| %>
+    <%= render 'rhythm', rhythm: rhythm %>
+  <% end %>
+</div>
+<div class="columns small-12 large-12 medium-12 large-centered medium-centered small-centered  text-center">
+  <a href="#" class="button sub-comps">Submit</a>
+</div>
