@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hive01</title>
+  <title>Hive.It</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 </head>
 <body>
-
+<div class="show-for-medium-up contain-to-grid fixed">
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name"><a href="#">Hive.It</a></li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="right">
+        <li><a href="#">My Hives</a></li>
+        <li><a href="#">My Profile</a></li>
+        <li><a href="#" id='sign-out'>Sign Out</a></li>
+      </ul>
+    </section>
+  </nav>
+</div>
+<div class='buffer'></div>
 <%= yield %>
 
 </body>

@@ -1,3 +1,14 @@
+li.name > a {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 2.5rem;
+    color: white;
+}
+
+.buffer {
+  margin-top: 2.5em;
+}
+
 .hero {
     width: 100%;
     border: black 1px solid;
@@ -8,7 +19,7 @@
 }
 
 .hero-text {
-    top: 10%;
+    top: 15%;
     position: absolute;
     width: 100%;
     margin-left: auto;
@@ -22,20 +33,61 @@
   color: white;
 }
 
+.page-heading {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .fb-auth {
   margin-top: 2em;
 }
 
-.comps {
+.post-it {
   border: 1px black solid;
+  height: 10em;
+  margin-bottom: 2em;
+}
+
+.active {
+  box-shadow: 5px 5px 5px #0000FF;
+}
+
+.pi-heading {
+  margin-top: 2em;
+}
+
+.dropbox {
+  margin-top: 3em;
+  border: 1px black solid;
+  height: 10em;
+}
+
+.comp-rank {
+  border: 1px black solid;
+/*  width: 325px;
+  height: 250px;*/
 }
 
 .sub {
   margin-top: 2em;
 }
 
+.rhythm-heading {
+  color: white;
+  margin-top: 2em;
+}
+
 .question-box {
-  margin-top: 3em;
   height: 10em;
 }
 
+.tq-title {
+  margin-bottom: 2em;
+  text-decoration: underline;
+}
+
+.top-questions {
+  border: 1px black solid;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :questions, only: :new
   end
 
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
