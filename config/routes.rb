@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   root 'users#new'
 
   resources :users do
-    resources :competencies, only: [:index, :new]
-    resources :rhythms, only: :index
+    resources :competencies, only: [:index, :new, :create, :update]
+    resources :rhythms, only: [:index, :create]
     resources :questions, only: :new
   end
 

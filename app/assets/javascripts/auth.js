@@ -56,7 +56,6 @@ ready = function() {
           data: response.authResponse
         })
         .done(function(response){
-          console.log(response);
           document.location="/users/" + response.user_id + "/competencies"
         })
         .fail(function(response){
