@@ -2,9 +2,7 @@
   <h1 class='page-heading'>How do you learn best? (select 3)</h1>
 </div>
 <div class='row'>
-  <% @competencies.each do |competency| %>
-    <%= render 'competency', competency: competency %>
-  <% end %>
+  <%= render @competencies %>
 </div>
 <div class="columns small-12 large-12 medium-12 large-centered medium-centered small-centered  text-center">
   <!-- Add AJAX here to associate selections with the user -->

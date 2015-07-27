@@ -1,6 +1,11 @@
 var ready;
 ready = function() {
 
+  var pusher = new Pusher('cf25b0bc9947e040c849');
+  var chatWidget = new PusherChatWidget(pusher, {
+    // chatEndPoint: 'pusher-realtime-chat-widget/src/php/chat.php'
+  });
+
 };
 
 $(document).ready(ready);

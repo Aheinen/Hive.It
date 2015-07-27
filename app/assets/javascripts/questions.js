@@ -3,7 +3,7 @@ ready = function() {
 
   $('#sub-questions').click(function(event){
     event.preventDefault();
-    event.stopPropagation()
+    event.stopPropagation();
     var route = $(this).attr('href');
     var data = $('.question-box').val();
     $.ajax({

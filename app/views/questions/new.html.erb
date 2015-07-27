@@ -18,7 +18,5 @@
   <h3 class='tq-title'>Today's Top Questions:</h3>
 </div>
 <div class='row'>
-  <% @top_questions.each do |question| %>
-    <%= render 'question', question: question %>
-  <% end %>
+  <%= render @questions %>
 </div>

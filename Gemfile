@@ -30,6 +30,9 @@ gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# For chat implementation
+gem 'pusher'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

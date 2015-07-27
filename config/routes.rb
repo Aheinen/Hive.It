@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :rhythms, only: [:index, :create]
     resources :questions, only: [:new, :create]
     resources :hives, only: [:index, :show]
+    post 'hives/:hive_id/chat', to: 'hives#chat'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

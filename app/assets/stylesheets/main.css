@@ -103,3 +103,22 @@ li.name > a {
 .user-image {
   border: 1px black solid;
 }
+
+#favorites {
+  border: 1px black solid;
+  height: 20em;
+}
+
+.comment-box {
+  height: 50%;
+  width: 80%;
+  margin-left: 10%;
+}
+
+#chat-window {
+  height: 40em;
+}
+
+.chat-title {
+  font-weight: bold;
+}

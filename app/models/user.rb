@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :hive_users
   has_many :competency_users
   has_many :questions
+  has_many :messages
 
   def self.from_omniauth(auth_hash)
     user = find_or_create_by(uid: auth_hash['uid'])
