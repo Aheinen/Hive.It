@@ -99,3 +99,7 @@ li.name > a {
   background-color: gray;
   margin-bottom: 2em;
 }
+
+.user-image {
+  border: 1px black solid;
+}

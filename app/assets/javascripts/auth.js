@@ -64,13 +64,6 @@ ready = function() {
       }
     }, { scope: 'email'})
   });
-
-  $('#sign-out').click(function(event){
-    event.preventDefault();
-    $.get( "/logout");
-  })
-
-
 };
 
 $(document).ready(ready);

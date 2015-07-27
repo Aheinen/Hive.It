@@ -8,6 +8,8 @@ class HivesController < ApplicationController
   end
 
   def show
+    @current_hive = Hive.find_by(id: params[:id])
+    @hive_users = HiveUser.where(hive_id: @current_hive.id)
   end
 
 end

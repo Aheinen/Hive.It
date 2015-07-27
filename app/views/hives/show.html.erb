@@ -1,0 +1,13 @@
+<div class='row'>
+  <h3>Hive Members</h3>
+</div>
+<div class='row center'>
+  <% @hive_users.each do |member| %>
+    <%= render 'member', member: member %>
+  <% end %>
+</div>
+<div class='row'>
+  <div class='columns large-12 large-centered horiz-line'>
+    <hr class="horiz-line">
+  </div>
+</div>
