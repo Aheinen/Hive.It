@@ -58,8 +58,10 @@ ActiveRecord::Schema.define(version: 20150720024422) do
   create_table "hives", force: :cascade do |t|
     t.integer  "question_id"
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "active",      default: false
+    t.boolean  "completed",   default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "hives", ["question_id"], name: "index_hives_on_question_id", using: :btree

@@ -92,3 +92,10 @@ li.name > a {
   padding-top: 2em;
   padding-bottom: 2em;
 }
+
+.hive {
+  border: 1px black solid;
+  height: 10em;
+  background-color: gray;
+  margin-bottom: 2em;
+}

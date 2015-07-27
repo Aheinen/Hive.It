@@ -52,7 +52,6 @@ ready = function() {
     for (var i=0; i<selectedHtml.length; i+=1){
       data.push(selectedHtml[i]);
     }
-    console.log(data)
     $.ajax({
       url: route,
       method: 'PUT',

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'competencies/rank', to: 'competencies#rank'
     resources :rhythms, only: [:index, :create]
     resources :questions, only: [:new, :create]
+    resources :hives, only: [:index, :show]
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

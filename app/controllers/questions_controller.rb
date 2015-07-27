@@ -6,7 +6,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    Question.create(user_id: @current_user.id, inquiry: params[:question])
+    question = Question.new(user_id: @current_user.id, inquiry: params[:question])
+    if question.save
+      hive = Hive.create(question_id: question.id)
+      HiveUser.create(hive_id: hive.id, user_id: @current_user.id)
+      render json: {user_id: @current_user.id}
+    end
   end
 
 end

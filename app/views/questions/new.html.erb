@@ -7,7 +7,7 @@
         <textarea class='question-box' placeholder="If you could learn anything, what would it be?"></textarea>
       </label>
   </div>
-  <%= link_to "Submit", "#", class: "button sub" %>
+  <%= link_to "Submit", user_questions_path, method: "post", class: "button sub", id: "sub-questions" %>
 </div>
 <div class='row'>
   <div class='columns large-12 large-centered horiz-line'>
