@@ -12,11 +12,14 @@ ready = function() {
     }
   })
 
-  $( ".draggable" ).draggable();
+  $( ".draggable" ).draggable({
+    containment: 'body'
+  });
   $( ".dropbox" ).droppable({
+      accept: '.draggable',
       drop: function( event, ui ) {
-        $( this )
-          .addClass( "ui-state-highlight" )
+        // This changes the id of the droppable box to the name of the element being dropped inside
+        $(this).attr('id', ui['draggable'][0].firstChild.nextSibling.id)
       }
     });
 
@@ -34,12 +37,34 @@ ready = function() {
       data: {selected: data}
     })
     .done(function(response){
-          document.location="/users/" + response.user_id + "/competencies/new"
+          document.location="/users/" + response.user_id + "/competencies/rank"
     })
-    .done(function(response){
+    .fail(function(response){
       console.log('failed');
     })
   })
+
+  $('#sub-order').click(function(event){
+    event.preventDefault();
+    var route = $(this).attr('href');
+    var selectedHtml = $('.dropbox').map(function(){return this.id});
+    var data = []
+    for (var i=0; i<selectedHtml.length; i+=1){
+      data.push(selectedHtml[i]);
+    }
+    console.log(data)
+    $.ajax({
+      url: route,
+      method: 'PUT',
+      data: {selected: data}
+    })
+    .done(function(response){
+          document.location="/users/" + response.user_id + "/rhythms"
+    })
+    .fail(function(response){
+      console.log('failed');
+    })
+  });
 
 };
 

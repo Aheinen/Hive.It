@@ -3,14 +3,12 @@
 </div>
 <div class='row'>
   <% @competencies.each do |competency| %>
-    <div class='draggable'>
       <%= render 'competency', competency: competency %>
-    </div>
   <% end %>
 </div>
 <div class="columns small-12 large-12 medium-12 large-centered medium-centered small-centered  text-center">
   <!-- Add AJAX here to associate selections with the user -->
-  <%= link_to "Submit", user_rhythms_path, class: "button sub" %>
+  <a href="#" class="button sub" id="sub-order">Submit</a>
 </div>
 <div class='row'>
   <div class='columns small-12 medium-6 large-4 center'>
@@ -19,13 +17,13 @@
     </div>
   </div>
   <div class='columns small-12 medium-6 large-4 center'>
-    <div class='dropbox dropbox-text'>
-      <h3 class='text-center'>2</h3>
+    <div class='dropbox'>
+      <h3 class='dropbox-text text-center'>2</h3>
     </div>
   </div>
   <div class='columns small-12 medium-6 large-4 center'>
-    <div class='dropbox dropbox-text'>
-      <h3 class='text-center'>3</h3>
+    <div class='dropbox'>
+      <h3 class='dropbox-text text-center'>3</h3>
     </div>
   </div>
 </div>

@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   root 'users#new'
 
   resources :users do
-    resources :competencies, only: [:index, :new, :create, :update]
+    resources :competencies, only: [:index, :create, :update]
+    get 'competencies/rank', to: 'competencies#rank'
     resources :rhythms, only: [:index, :create]
-    resources :questions, only: :new
+    resources :questions, only: [:new, :create]
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

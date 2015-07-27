@@ -17,7 +17,7 @@ ready = function() {
     .done(function(response){
           document.location="/users/" + response.user_id + "/questions/new"
     })
-    .done(function(response){
+    .fail(function(response){
       console.log('failed');
     })
   })

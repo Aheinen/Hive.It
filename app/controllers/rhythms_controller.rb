@@ -6,6 +6,7 @@ class RhythmsController < ApplicationController
   end
 
   def create
+    RhythmUser.where(user_id: @current_user.id).destroy_all
     params[:selected].each do |rhythm|
       RhythmUser.create(user_id: @current_user.id, rhythm_id: Rhythm.find_by(name: rhythm).id)
     end

@@ -58,6 +58,7 @@ li.name > a {
 
 .dropbox {
   margin-top: 3em;
+  margin-bottom: 3em;
   border: 1px black solid;
   height: 10em;
 }
