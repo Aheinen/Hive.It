@@ -5,6 +5,10 @@
  * @param {Pusher} pusher The Pusher object used for the chat widget.
  * @param {Map} options A hash of key value options for the widget.
  */
+// $(function(){
+//   if($('span').is('.hive-chat')){
+
+
 
 function PusherChatWidget(pusher, options) {
   PusherChatWidget.instances.push(this);
@@ -15,7 +19,7 @@ function PusherChatWidget(pusher, options) {
 
   options = options || {};
   this.settings = $.extend({
-    maxItems: 50, // max items to show in the UI. Items beyond this limit will be removed as new ones come in.
+    maxItems: 500, // max items to show in the UI. Items beyond this limit will be removed as new ones come in.
     chatEndPoint: document.location.href.slice(21) + '/chat', // the end point where chat messages should be sanitized and then triggered
     channelName: document.location.href, // the name of the channel the chat will take place on
     appendTo: $('#chat-window'), // A jQuery selector or object. Defines where the element should be appended to
@@ -62,6 +66,9 @@ function PusherChatWidget(pusher, options) {
   });
 
   this._startTimeMonitor();
+  if (typeof gon !== "undefined"){
+    this._populateChat(gon.mapped_messages);
+  }
 };
 PusherChatWidget.instances = [];
 
@@ -111,6 +118,7 @@ PusherChatWidget.prototype._sendChatButtonClicked = function(event) {
 /* @private */
 PusherChatWidget.prototype._sendChatMessage = function(data) {
   var self = this;
+  console.log(this)
   this._messageInputEl.attr('readonly', 'readonly');
   $.ajax({
     url: this.settings.chatEndPoint,
@@ -127,7 +135,6 @@ PusherChatWidget.prototype._sendChatMessage = function(data) {
       self._messageInputEl.removeAttr('readonly');
     },
     success: function(result) {
-      console.log(result);
       var activity = result.activity;
       var imageInfo = activity.actor.image;
       var image = $('<div class="pusher-chat-widget-current-user-image">' +
@@ -135,6 +142,7 @@ PusherChatWidget.prototype._sendChatMessage = function(data) {
                     '</div>');
       var name = $('<div class="pusher-chat-widget-current-user-name">' + activity.actor.displayName.replace(/\\'/g, "'") + '</div>');
       var header = self._widget.find('.pusher-chat-widget-header');
+      console.log(header)
       header.html(image).append(name);
     }
   })
@@ -153,6 +161,42 @@ PusherChatWidget.prototype._startTimeMonitor = function() {
     });
   }, 10 * 1000)
 };
+PusherChatWidget.prototype._populateChat = function(messages) {
+  var self = this;
+  console.log(self)
+  console.log(messages)
+  for (var i = 0; i < messages.length; i += 1){
+    var imageInfo = messages[i].actor.image;
+    console.log(imageInfo)
+    var image = $('<div class="pusher-chat-widget-current-user-image">' +
+                    '<img src="' + imageInfo + '" width="32" height="32" />' +
+                  '</div>');
+    var name = $('<div class="pusher-chat-widget-current-user-name">' + messages[i].actor.displayName.replace(/\\'/g, "'") + '</div>');
+    var header = self._widget.find('.pusher-chat-widget-header');
+    console.log(header)
+    header.html(image).append(name);
+
+    var messageEl = PusherChatWidget._buildListItem(messages[i]);
+  messageEl.hide();
+  this._messagesEl.append(messageEl);
+  messageEl.slideDown(function() {
+    if(self._autoScroll) {
+      var messageEl = self._messagesEl.get(0);
+      var scrollableHeight = (messageEl.scrollHeight - self._messagesEl.height());
+      self._messagesEl.scrollTop(messageEl.scrollHeight);
+    }
+  });
+
+  ++this._itemCount;
+
+  if(this._itemCount > this.settings.maxItems) {
+    /* get first li of list */
+    this._messagesEl.children(':first').slideUp(function() {
+      $(this).remove();
+    });
+  }
+  }
+}
 
 /* @private */
 PusherChatWidget._createHTML = function(appendTo) {
@@ -264,3 +308,22 @@ PusherChatWidget.timeToDescription = function(time) {
   }
   return desc;
 };
+
+// var populateChat = function(messages) {
+//   console.log(messages)
+//   for (var i = 0; i < messages.length; i += 1){
+//     var imageInfo = messages[i].actor.image;
+//     console.log(imageInfo)
+//     var image = $('<div class="pusher-chat-widget-current-user-image">' +
+//                     '<img src="' + imageInfo + '" width="32" height="32" />' +
+//                   '</div>');
+//     var name = $('<div class="pusher-chat-widget-current-user-name">' + messages[i].actor.displayName.replace(/\\'/g, "'") + '</div>');
+//     var header = PusherChatWidget.instances.find('.pusher-chat-widget-header');
+//     header.html(image).append(name);
+//   }
+// }
+
+
+
+//   }
+// });

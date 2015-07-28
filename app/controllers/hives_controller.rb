@@ -18,8 +18,8 @@ class HivesController < ApplicationController
   def show
     @current_hive = Hive.find_by(id: params[:id])
     @hive_users = HiveUser.where(hive_id: @current_hive.id)
-    @hive_messages = Message.where(hive_id: @current_hive.id)
-    @mapped_messages = @hive_messages.map do |message|
+    hive_messages = Message.where(hive_id: @current_hive.id)
+    gon.mapped_messages = hive_messages.map do |message|
       message.getMessage
     end
   end
@@ -42,7 +42,7 @@ class HivesController < ApplicationController
 
     message = Message.create(user_id: @current_user.id, hive_id: @current_hive.id, body: options['text'])
 
-    data = message.getMessage()
+    data = message.getMessage
 
     response = Pusher.trigger(channel_name, 'chat_message', data)
 
