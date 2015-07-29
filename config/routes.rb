@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'competencies/rank', to: 'competencies#rank'
     resources :rhythms, only: [:index, :create]
     resources :questions, only: [:new, :create]
-    resources :hives, only: [:index, :show]
+    resources :hives, only: [:index, :show, :new]
     post 'hives/:hive_id/chat', to: 'hives#chat'
   end
 

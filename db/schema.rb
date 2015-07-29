@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20150727182504) do
   create_table "hives", force: :cascade do |t|
     t.integer  "question_id"
     t.string   "name"
-    t.boolean  "active",      default: false
+    t.boolean  "solo",        default: false
     t.boolean  "completed",   default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false

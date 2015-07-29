@@ -1,0 +1,11 @@
+<body onLoad="setTimeout('delayedRedirect()', 3000)">
+  <div class='row text-center'>
+    <h1 class='page-heading'>Thanks! we're generating your profile...</h1>
+      <h3>We will look for optimal matches, but feel free to begin your hive solo</h3>
+  </div>
+</body>
+<script>
+  function delayedRedirect(){
+    window.location = "/users/" + gon.current_user.id + "/hives"
+  }
+</script>

@@ -1,5 +1,5 @@
 class HivesController < ApplicationController
-  before_action :current_user, only: [:index, :show, :chat]
+  before_action :current_user, only: [:index, :show, :chat, :new]
 
   require 'pusher'
 
@@ -10,9 +10,9 @@ class HivesController < ApplicationController
 
 
   def index
-    @active_hives = Hive.where(id: HiveUser.where(user_id: @current_user.id).pluck(:hive_id)).where(active: true)
-    @pending_hives = Hive.where(id: HiveUser.where(user_id: @current_user.id).pluck(:hive_id)).where(active: false)
-    @potential_hives = Hive.all.sample(3)
+    @group_hives = Hive.where(id: HiveUser.where(user_id: @current_user.id).pluck(:hive_id)).where(solo: false)
+    @solo_hives = Hive.where(id: HiveUser.where(user_id: @current_user.id).pluck(:hive_id)).where(solo: true)
+    @potential_hives = Hive.where(solo: false).sample(3)
   end
 
   def show
@@ -22,6 +22,11 @@ class HivesController < ApplicationController
     gon.mapped_messages = hive_messages.map do |message|
       message.getMessage
     end
+  end
+
+  # Loading screen to tell the user what is happening
+  def new
+    gon.current_user = @current_user
   end
 
   # Taken from Pusher
@@ -50,6 +55,11 @@ class HivesController < ApplicationController
      render json: {activity: data, pusherResponse: response}
     end
 end
+
+
+
+
+
 
 def get_channel_name(http_referer)
   pattern = /(\W)+/

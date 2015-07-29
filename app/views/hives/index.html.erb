@@ -2,18 +2,18 @@
   <h1 class='page-heading'>Hive Home</h1>
 </div>
 <div class='row'>
-  <h3>Pending Hives...</h3>
+  <h3>Solo Hives</h3>
 </div>
 <div class='row'>
-  <% @pending_hives.each do |hive| %>
+  <% @solo_hives.each do |hive| %>
     <%= render 'hive', hive: hive %>
   <% end %>
 </div>
 <div class='row'>
-  <h3>Active Hives</h3>
+  <h3>Group Hives</h3>
 </div>
 <div class='row'>
-  <% @active_hives.each do |hive| %>
+  <% @group_hives.each do |hive| %>
     <%= render 'hive', hive: hive %>
   <% end %>
 </div>
