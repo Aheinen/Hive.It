@@ -8,9 +8,9 @@
         <textarea class='question-box' placeholder="If you could learn anything, what would it be?"></textarea>
       </label>
   </div>
-  <%= link_to "Group Hive", user_questions_path, method: "post", class: "button sub", id: "group-hive" %>
-  <%= link_to "Solo Hive", user_questions_path, method: "post", class: "button sub", id: "solo-hive" %>
-    <%= link_to "Hive Home", user_hives_path, method: "get", class: "button sub", id: "hive-home" %>
+  <%= link_to "Group Hive", user_questions_path, method: "post", class: "button sub q-button", id: "group-hive" %>
+  <%= link_to "Solo Hive", user_questions_path, method: "post", class: "button sub q-button", id: "solo-hive" %>
+    <%= link_to "Hive Home", user_hives_path, method: "get", class: "button sub q-button", id: "hive-home" %>
 </div>
 <div class='row'>
   <div class='columns large-12 large-centered horiz-line'>
@@ -21,5 +21,5 @@
   <h3 class='tq-title'>Today's Most Buzzing Hives:</h3>
 </div>
 <div class='row'>
-  <%= render @questions %>
+  <%= render @hives %>
 </div>

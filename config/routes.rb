@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#new'
 
-  resources :users do
+  resources :users, only: [:new, :show] do
     resources :competencies, only: [:index, :create, :update]
     get 'competencies/rank', to: 'competencies#rank'
     resources :rhythms, only: [:index, :create]

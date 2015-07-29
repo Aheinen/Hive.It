@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :current_user, only: [:new, :create]
 
   def new
-    @questions = Question.all.sample(3)
+    @hives = Hive.where(solo: false).sample(3)
   end
 
   def create

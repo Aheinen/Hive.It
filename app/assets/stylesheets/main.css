@@ -87,6 +87,10 @@ li.name > a {
   text-decoration: underline;
 }
 
+.q-button {
+  margin-left: 1em;
+}
+
 .top-questions {
   border: 1px black solid;
   padding-top: 2em;
@@ -106,7 +110,13 @@ li.name > a {
 
 #favorites {
   border: 1px black solid;
-  height: 20em;
+  height: 21em;
+}
+
+#cross-pol {
+  border: 1px black solid;
+  height: 21em;
+  margin-top: 2em;
 }
 
 .comment-box {

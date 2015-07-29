@@ -1,0 +1,22 @@
+<div class='row text-center'>
+  <h1 class='page-heading'>Welcome, <%= @current_user.name %></h1>
+  <h3>Update your learning profile or check out hive reports below.</h3>
+</div>
+<div class='row'>
+  <h3>Learning Competencies</h3>
+
+  <h3>Learning Rhythm(s)</h3>
+</div>
+<div class='row'>
+  <div class='columns large-12 large-centered horiz-line'>
+    <hr class="horiz-line">
+  </div>
+</div>
+<div class='row text-center'>
+  <h1>Report Arc-Hive</h1>
+  <% @hives.each do |hive| %>
+    <div class='columns large-4 medium-6 small-12'>
+      <h4><%= hive.question.inquiry %></h4>
+    </div>
+  <% end %>
+</div>
