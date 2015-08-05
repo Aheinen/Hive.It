@@ -20,7 +20,9 @@ function PusherChatWidget(pusher, options) {
   options = options || {};
   this.settings = $.extend({
     maxItems: 500, // max items to show in the UI. Items beyond this limit will be removed as new ones come in.
-    chatEndPoint: document.location.href.slice(21) + '/chat', // the end point where chat messages should be sanitized and then triggered
+
+    // EndPoint changes based on if we are looking at Heroku or LocalHost due to the difference in length of the base URL
+    chatEndPoint: document.location.href.slice(29) + '/chat', // the end point where chat messages should be sanitized and then triggered
     channelName: document.location.href, // the name of the channel the chat will take place on
     appendTo: $('#chat-window'), // A jQuery selector or object. Defines where the element should be appended to
     debug: true
@@ -118,7 +120,6 @@ PusherChatWidget.prototype._sendChatButtonClicked = function(event) {
 /* @private */
 PusherChatWidget.prototype._sendChatMessage = function(data) {
   var self = this;
-  console.log(this)
   this._messageInputEl.attr('readonly', 'readonly');
   $.ajax({
     url: this.settings.chatEndPoint,
