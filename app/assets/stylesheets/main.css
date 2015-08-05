@@ -46,6 +46,7 @@ li.name > a {
   border: 1px black solid;
   height: 10em;
   margin-bottom: 2em;
+  z-index: 5;
 }
 
 .active {
