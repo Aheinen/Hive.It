@@ -4,7 +4,8 @@ ready = function() {
   // Register clicks on post-it divs and highlight
   $('.post-it').click(function(event){
     event.preventDefault();
-    if ($(this).attr('class') === 'post-it active') {
+    console.log($(this).attr('class'));
+    if ($(this).attr('class') === 'post-it draggable ui-draggable ui-draggable-handle active') {
       $(this).removeClass('active');
     }
     else if($('.active').length < 3) {
