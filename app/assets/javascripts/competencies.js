@@ -5,7 +5,7 @@ ready = function() {
   $('.post-it').click(function(event){
     event.preventDefault();
     console.log($(this).attr('class'));
-    if ($(this).attr('class') === 'post-it draggable ui-draggable ui-draggable-handle active') {
+    if ($(this).attr('class') === 'draggable post-it ui-draggable ui-draggable-handle active' || $(this).attr('class') === 'post-it active') {
       $(this).removeClass('active');
     }
     else if($('.active').length < 3) {
