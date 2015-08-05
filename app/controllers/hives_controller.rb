@@ -31,7 +31,7 @@ class HivesController < ApplicationController
 
   # Taken from Pusher
   def chat
-    @current_hive = Hive.find_by(id: params[:hive_id])
+    @current_hive = Hive.find_by(id: params[:id])
 
     chat_info = params[:chat_info]
 
