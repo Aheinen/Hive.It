@@ -21,7 +21,7 @@ function PusherChatWidget(pusher, options) {
   this.settings = $.extend({
     maxItems: 500, // max items to show in the UI. Items beyond this limit will be removed as new ones come in.
 
-    // EndPoint changes based on if we are looking at Heroku or LocalHost due to the difference in length of the base URL
+    // EndPoint changes based on if we are looking at Heroku or LocalHost due to the difference in length of the base URL - 28 & 36 for heroku, 21 & 29 for localhost
     chatEndPoint: document.location.href.slice(28) + '/chat', // the end point where chat messages should be sanitized and then triggered
     channelName: document.location.href.slice(36), // the name of the channel the chat will take place on
     appendTo: $('#chat-window'), // A jQuery selector or object. Defines where the element should be appended to

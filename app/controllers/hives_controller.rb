@@ -42,7 +42,8 @@ class HivesController < ApplicationController
       body 'channel name could not be determined from request.referer'
     end
 
-    channel_name = get_channel_name(request.referer)
+    channel_name = "-hives-" + @current_hive.id.to_s
+    p channel_name
     options = sanitise_input(chat_info)
 
     message = Message.create(user_id: @current_user.id, hive_id: @current_hive.id, body: options['text'])
