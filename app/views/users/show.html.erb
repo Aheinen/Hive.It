@@ -4,8 +4,17 @@
 </div>
 <div class='row'>
   <h3>Learning Competencies</h3>
-
+    <% @competencies.each do |competency| %>
+      <div class='columns large-4 medium-6 small-12 text-center profile-box' style="background-color: <%= competency.color %>">
+        <h4 class='pi-heading'><%= competency.name %></h4>
+      </div>
+    <% end %>
   <h3>Learning Rhythm(s)</h3>
+    <% @rhythms.each do |rhythm| %>
+      <div class='columns large-4 medium-6 small-12 text-center profile-box' style="background-color: <%= rhythm.color %>">
+        <h4 class='rhythm-heading'><%= rhythm.name %></h4>
+      </div>
+    <% end %>
 </div>
 <div class='row'>
   <div class='columns large-12 large-centered horiz-line'>

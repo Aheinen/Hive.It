@@ -5,7 +5,6 @@ ready = function() {
     event.preventDefault();
     var route = $(this).attr('href');
     var selectedHtml = $('.active h3').map(function(){return this.id});
-    alert('clicked')
     var data = []
     for (var i=0; i<selectedHtml.length; i+=1){
       data.push(selectedHtml[i]);
@@ -16,8 +15,7 @@ ready = function() {
       data: {selected: data}
     })
     .done(function(response){
-      alert('got here')
-          document.location="/users/" + response.user_id + "/questions/new"
+      document.location="/users/" + response.user_id + "/questions/new"
     })
     .fail(function(response){
       console.log('failed');

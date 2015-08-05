@@ -132,3 +132,14 @@ li.name > a {
 .chat-title {
   font-weight: bold;
 }
+
+.icon {
+  height: 3em;
+  width: auto;
+}
+
+.profile-box {
+  border: 1px black solid;
+  height: 10em;
+  margin-bottom: 2em;
+}

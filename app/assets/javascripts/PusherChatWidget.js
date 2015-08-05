@@ -213,6 +213,8 @@ PusherChatWidget._createHTML = function(appendTo) {
       '<label class="text-center" for="message">Message</label>' +
       '<textarea name="message" class="comment-box"></textarea>' +
       '<button class="button-sub" id="sub-message">Send</button>' +
+      '<img class="icon" src="http://www.image4world.com/vb/imgcache/2/6458poster.jpeg" />' +
+      '<img class="icon" src="http://iconshow.me/media/images/Mixed/Free-Flat-UI-Icons/png/256/video-24-256.png" />' +
     '</div>' +
     '</div>' +
   '</div>';
