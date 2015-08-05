@@ -23,7 +23,7 @@ function PusherChatWidget(pusher, options) {
 
     // EndPoint changes based on if we are looking at Heroku or LocalHost due to the difference in length of the base URL
     chatEndPoint: document.location.href.slice(28) + '/chat', // the end point where chat messages should be sanitized and then triggered
-    channelName: document.location.href, // the name of the channel the chat will take place on
+    channelName: document.location.href.slice(36), // the name of the channel the chat will take place on
     appendTo: $('#chat-window'), // A jQuery selector or object. Defines where the element should be appended to
     debug: true
   }, options);
