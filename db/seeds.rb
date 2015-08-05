@@ -21,11 +21,11 @@ Rhythm.create(name: "Bursts", color: "#000000") #black
 Rhythm.create(name: "Deep Dive", color: "#4B0082") #indigo
 Rhythm.create(name: "Casual", color: "#003300") #forest green
 
-User.create(name: "Alex Heinen", email: "Alex@alex.com", city: "San Francisco", country: "USA")
+# User.create(name: "Alex Heinen", email: "Alex@alex.com", city: "San Francisco", country: "USA")
 
-CompetencyUser.create(user_id: 1, competency_id: 1)
-CompetencyUser.create(user_id: 1, competency_id: 2)
-CompetencyUser.create(user_id: 1, competency_id: 3)
+# CompetencyUser.create(user_id: 1, competency_id: 1)
+# CompetencyUser.create(user_id: 1, competency_id: 2)
+# CompetencyUser.create(user_id: 1, competency_id: 3)
 
 Question.create(inquiry: "How can I build stronger relationships at work?")
 Question.create(inquiry: "How do I best go about learning Angular.js?")
