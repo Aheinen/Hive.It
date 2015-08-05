@@ -36,6 +36,12 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  require 'pusher'
+
+  Pusher.app_id = '131952'
+  Pusher.key = 'cf25b0bc9947e040c849'
+  Pusher.secret = '736374339876eb7e55fc'
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
