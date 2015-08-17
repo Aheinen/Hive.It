@@ -274,14 +274,12 @@ PusherChatWidget._buildListItem = function(activity) {
   content.append(message);
 
   var time = $('<div class="activity-row">' +
+                '<span class="activity-actions">' +
+                  '<img class="bee-img" src="/assets/bee.png"/>' +
+                '</span>' +
                 '<a ' + (activity.link?'href="' + activity.link + '" ':'') + ' class="timestamp">' +
                   '<span title="' + activity.published + '" data-activity-published="' + activity.published + '">' + PusherChatWidget.timeToDescription(activity.published) + '</span>' +
                 '</a>' +
-                '<span class="activity-actions">' +
-                  /*'<span class="tweet-action action-favorite">' +
-                    '<a href="#" class="like-action" data-activity="like" title="Like"><span><i></i><b>Like</b></span></a>' +
-                  '</span>' +*/
-                '</span>' +
               '</div>');
   content.append(time);
 

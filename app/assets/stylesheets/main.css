@@ -144,3 +144,8 @@ li.name > a {
   height: 10em;
   margin-bottom: 2em;
 }
+
+.bee-img {
+  width: 3em;
+  padding-right: 1em;
+}
