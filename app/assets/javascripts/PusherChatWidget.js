@@ -8,6 +8,26 @@
 // $(function(){
 //   if($('span').is('.hive-chat')){
 
+// establish a way to convert text to links
+if(!String.linkify) {
+    String.prototype.linkify = function() {
+
+        // http://, https://, ftp://
+        var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
+
+        // www. sans http:// or https://
+        var pseudoUrlPattern = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+
+        // Email addresses
+        var emailAddressPattern = /[\w.]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,6})+/gim;
+
+        return this
+            .replace(urlPattern, '<a href="$&">$&</a>')
+            .replace(pseudoUrlPattern, '$1<a href="http://$2">$2</a>')
+            .replace(emailAddressPattern, '<a href="mailto:$&">$&</a>');
+    };
+}
+
 
 
 function PusherChatWidget(pusher, options) {
@@ -22,8 +42,8 @@ function PusherChatWidget(pusher, options) {
     maxItems: 500, // max items to show in the UI. Items beyond this limit will be removed as new ones come in.
 
     // EndPoint changes based on if we are looking at Heroku or LocalHost due to the difference in length of the base URL - 28 & 36 for heroku, 21 & 29 for localhost
-    chatEndPoint: document.location.href.slice(28) + '/chat', // the end point where chat messages should be sanitized and then triggered
-    channelName: document.location.href.slice(36), // the name of the channel the chat will take place on
+    chatEndPoint: document.location.href.slice(21) + '/chat', // the end point where chat messages should be sanitized and then triggered
+    channelName: document.location.href.slice(29), // the name of the channel the chat will take place on
     appendTo: $('#chat-window'), // A jQuery selector or object. Defines where the element should be appended to
     debug: true
   }, options);
@@ -249,7 +269,7 @@ PusherChatWidget._buildListItem = function(activity) {
   content.append(user);
 
   var message = $('<div class="activity-row">' +
-                    '<div class="text">' + activity.body.replace(/\\('|&quot;)/g, '$1') + '</div>' +
+                    '<div class="text">' + activity.body.replace(/\\('|&quot;)/g, '$1').linkify() + '</div>' +
                   '</div>');
   content.append(message);
 
