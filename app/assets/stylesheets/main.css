@@ -113,6 +113,7 @@ li.name > a {
   border: 1px black solid;
   height: 21em;
   overflow: auto;
+  padding: 0;
 }
 
 #cross-pol {
@@ -149,4 +150,19 @@ li.name > a {
 .bee-img {
   width: 3em;
   padding-right: 1em;
+}
+
+.hived-container {
+  border: 1px black solid;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+.hived-img {
+  padding-left: 1em;
+}
+
+.hived-text {
+  padding-left: 1em;
 }

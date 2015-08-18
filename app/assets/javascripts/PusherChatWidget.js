@@ -282,8 +282,15 @@ PusherChatWidget._buildListItem = function(activity) {
   content.append(time);
 
   if (activity.hived === true) {
-    console.log(li)
-    var hivedMessage = li[0].cloneNode(true);
+    var hivedMessage = $(
+      '<div class="hived-container">' +
+        '<div class="hived-img">' +
+          '<img src="' + imageInfo + '" width="32" height="32" />' +
+        '</div>' +
+        '<div>' +
+          '<div class="hived-text">' + activity.body.replace(/\\('|&quot;)/g, '$1').linkify() + '</div>' +
+        '</div>' +
+      '</div>')
     $('#favorites').append(hivedMessage);
   }
 

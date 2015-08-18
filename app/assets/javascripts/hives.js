@@ -20,7 +20,19 @@ ready = function() {
       url: route,
       data: { message: message }
     }).done(function(response) {
-      console.log(response);
+      console.log(response)
+      var hivedMessage = $(
+      '<div class="hived-container">' +
+        '<div class="hived-img">' +
+          '<img src="' + response.user.image_url + '" width="32" height="32" />' +
+        '</div>' +
+        '<div>' +
+          '<div class="hived-text">' + response.message.body.replace(/\\('|&quot;)/g, '$1').linkify() + '</div>' +
+        '</div>' +
+      '</div>')
+    $('#favorites').append(hivedMessage);
+    }).fail(function() {
+      alert('failed');
     })
   })
 

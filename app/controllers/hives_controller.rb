@@ -32,7 +32,7 @@ class HivesController < ApplicationController
   def favorite
     @message = Message.find(params[:message])
     @message.update(hived: true)
-    render json: {}
+    render json: {message: @message, user: @current_user}
   end
 
   # Taken from Pusher
