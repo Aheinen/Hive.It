@@ -5,6 +5,17 @@ ready = function() {
     // chatEndPoint: 'pusher-realtime-chat-widget/src/php/chat.php'
   });
 
+  $(document).on('click', '.bee-img', function(event) {
+    event.preventDefault();
+    var message = $(this).parent().attr('class');
+    console.log($(this).parent().attr('class'));
+    $.ajax({
+      method: 'GET',
+      url: '',
+      data: { message: message }
+    })
+  })
+
 };
 
 $(document).ready(ready);

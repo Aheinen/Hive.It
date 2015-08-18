@@ -188,7 +188,6 @@ PusherChatWidget.prototype._populateChat = function(messages) {
   console.log(messages)
   for (var i = 0; i < messages.length; i += 1){
     var imageInfo = messages[i].actor.image;
-    console.log(imageInfo)
     var image = $('<div class="pusher-chat-widget-current-user-image">' +
                     '<img src="' + imageInfo + '" width="32" height="32" />' +
                   '</div>');
@@ -263,7 +262,6 @@ PusherChatWidget._buildListItem = function(activity) {
   var user = $('<div class="activity-row">' +
                 '<span class="user-name">' +
                   '<a class="screen-name" title="' + activity.actor.displayName.replace(/\\'/g, "'") + '">' + activity.actor.displayName.replace(/\\'/g, "'") + '</a>' +
-                  //'<span class="full-name">' + activity.actor.displayName + '</span>' +
                 '</span>' +
               '</div>');
   content.append(user);
@@ -274,7 +272,7 @@ PusherChatWidget._buildListItem = function(activity) {
   content.append(message);
 
   var time = $('<div class="activity-row">' +
-                '<span class="activity-actions">' +
+                '<span class="' + activity.id + '">' +
                   '<img class="bee-img" src="/assets/bee.png"/>' +
                 '</span>' +
                 '<a ' + (activity.link?'href="' + activity.link + '" ':'') + ' class="timestamp">' +
@@ -330,21 +328,3 @@ PusherChatWidget.timeToDescription = function(time) {
   return desc;
 };
 
-// var populateChat = function(messages) {
-//   console.log(messages)
-//   for (var i = 0; i < messages.length; i += 1){
-//     var imageInfo = messages[i].actor.image;
-//     console.log(imageInfo)
-//     var image = $('<div class="pusher-chat-widget-current-user-image">' +
-//                     '<img src="' + imageInfo + '" width="32" height="32" />' +
-//                   '</div>');
-//     var name = $('<div class="pusher-chat-widget-current-user-name">' + messages[i].actor.displayName.replace(/\\'/g, "'") + '</div>');
-//     var header = PusherChatWidget.instances.find('.pusher-chat-widget-header');
-//     header.html(image).append(name);
-//   }
-// }
-
-
-
-//   }
-// });
