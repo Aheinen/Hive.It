@@ -1,5 +1,5 @@
 class HivesController < ApplicationController
-  before_action :current_user, only: [:index, :show, :chat, :new]
+  before_action :current_user, only: [:index, :show, :chat, :new, :favorite]
 
   require 'pusher'
 
@@ -29,6 +29,12 @@ class HivesController < ApplicationController
     gon.current_user = @current_user
   end
 
+  def favorite
+    @message = Message.find(params[:message])
+    @message.update(hived: true)
+    render json: {}
+  end
+
   # Taken from Pusher
   def chat
     @current_hive = Hive.find_by(id: params[:id])
@@ -56,11 +62,6 @@ class HivesController < ApplicationController
      render json: {activity: data, pusherResponse: response}
     end
 end
-
-
-
-
-
 
 def get_channel_name(http_referer)
   pattern = /(\W)+/

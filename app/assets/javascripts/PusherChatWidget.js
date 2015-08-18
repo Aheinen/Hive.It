@@ -281,6 +281,11 @@ PusherChatWidget._buildListItem = function(activity) {
               '</div>');
   content.append(time);
 
+  if (activity.hived === true) {
+    console.log(li)
+    var hivedMessage = li[0].cloneNode(true);
+    $('#favorites').append(hivedMessage);
+  }
 
   return li;
 };

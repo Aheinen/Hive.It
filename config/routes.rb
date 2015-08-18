@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :questions, only: [:new, :create]
     resources :hives, only: [:index, :show, :new]
     post 'hives/:id/chat', to: 'hives#chat'
+    patch 'hives/:id/favorite', to: 'hives#favorite'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

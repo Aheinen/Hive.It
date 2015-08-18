@@ -112,6 +112,7 @@ li.name > a {
 #favorites {
   border: 1px black solid;
   height: 21em;
+  overflow: auto;
 }
 
 #cross-pol {

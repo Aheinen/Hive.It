@@ -6,6 +6,7 @@ class Message < ActiveRecord::Base
     activity = {
       'id' => self.id,
       'body' => self.body,
+      'hived' => self.hived,
       'published' => self.created_at,
       'type' => 'message',
       'actor' => {
