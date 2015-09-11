@@ -10,8 +10,8 @@ class HivesController < ApplicationController
 
 
   def index
-    @group_hives = @current_user.hives.where(solo: false)
-    @solo_hives = @current_user.hives.where(solo: true)
+    @group_hives = current_user.hives.where(solo: false)
+    @solo_hives = current_user.hives.where(solo: true)
 
     # Change this later when there is a selection algorithm involved
     @potential_hives = Hive.where(solo: false).sample(3)
@@ -28,13 +28,13 @@ class HivesController < ApplicationController
 
   # Loading screen to tell the user what is happening
   def new
-    gon.current_user = @current_user
+    gon.current_user = current_user
   end
 
   def favorite
     @message = Message.find(params[:message])
     @message.update(hived: true)
-    render json: {message: @message, user: @current_user}
+    render json: {message: @message, user: current_user}
   end
 
   # Taken from Pusher
@@ -50,7 +50,7 @@ class HivesController < ApplicationController
     channel_name = "-hives-" + @current_hive.id.to_s
     p channel_name
     options = sanitise_input(chat_info)
-    message = Message.create(user_id: @current_user.id, hive_id: @current_hive.id, body: options['text'])
+    message = Message.create(user_id: current_user.id, hive_id: @current_hive.id, body: options['text'])
 
     data = message.getMessage
 
@@ -69,9 +69,9 @@ class HivesController < ApplicationController
 
   def sanitise_input(chat_info)
     options = {}
-    options['displayName'] = @current_user.name
+    options['displayName'] = current_user.name
     options['text'] = chat_info['text'].slice(0, 300)
-    options['image'] = @current_user.image_url
+    options['image'] = current_user.image_url
     return options
   end
 

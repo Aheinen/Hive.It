@@ -6,18 +6,18 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(user_id: @current_user.id, inquiry: params[:question])
+    question = Question.new(user_id: current_user.id, inquiry: params[:question])
     if question.save
       hive = Hive.create(question_id: question.id, solo: params[:solo])
-      HiveUser.create(hive_id: hive.id, user_id: @current_user.id)
+      HiveUser.create(hive_id: hive.id, user_id: current_user.id)
 
       ## For testing purposes, we will allow Julian and Alex to become the admin users for every hive
-      if @current_user.id != 1 && @current_user.id != 2 && !hive.solo
+      if current_user.id != 1 && current_user.id != 2 && !hive.solo
         hive.users << User.find(1)
         hive.users << User.find(2)
       end
 
-      render json: {user_id: @current_user.id}
+      render json: {user_id: current_user.id}
     end
   end
 

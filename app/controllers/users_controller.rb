@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @competencies = @current_user.competencies
-    @rhythms = @current_user.rhythms
-    @hives = @current_users.hives
+    @competencies = current_user.competencies
+    @rhythms = current_user.rhythms
+    @hives = current_users.hives
   end
 
 end

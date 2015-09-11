@@ -6,11 +6,11 @@ class RhythmsController < ApplicationController
   end
 
   def create
-    RhythmUser.where(user_id: @current_user.id).destroy_all
+    RhythmUser.where(user_id: current_user.id).destroy_all
     params[:selected].each do |rhythm|
-      @current_user.rhythms << Rhythm.find_by(name: rhythm)
+      current_user.rhythms << Rhythm.find_by(name: rhythm)
     end
-    render json: {user_id: @current_user.id}
+    render json: {user_id: current_user.id}
   end
 
 end
