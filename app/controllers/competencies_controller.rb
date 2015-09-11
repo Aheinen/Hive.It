@@ -6,13 +6,13 @@ class CompetenciesController < ApplicationController
   end
 
   def rank
-    @competencies = Competency.where(id: CompetencyUser.where(user_id: @current_user.id).pluck(:competency_id))
+    @competencies = @current_user.competencies
   end
 
   def create
     CompetencyUser.where(user_id: @current_user.id).destroy_all
     params[:selected].each do |competency|
-      CompetencyUser.create(user_id: @current_user.id, competency_id: Competency.find_by(name: competency).id)
+      @current_user.competencies << Competency.find_by(name: competency)
     end
     render json: {user_id: @current_user.id}
   end

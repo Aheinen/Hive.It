@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @competencies = Competency.where(id: CompetencyUser.where(user_id: @current_user.id).pluck(:competency_id))
-    @rhythms = Rhythm.where(id: RhythmUser.where(user_id: @current_user.id).pluck(:rhythm_id))
-    @hives = Hive.where(id: HiveUser.where(user_id: @current_user.id).pluck(:hive_id))
+    @competencies = @current_user.competencies
+    @rhythms = @current_user.rhythms
+    @hives = @current_users.hives
   end
 
 end

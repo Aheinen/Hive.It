@@ -13,8 +13,8 @@ class QuestionsController < ApplicationController
 
       ## For testing purposes, we will allow Julian and Alex to become the admin users for every hive
       if @current_user.id != 1 && @current_user.id != 2 && !hive.solo
-        HiveUser.create(hive_id: hive.id, user_id: 1)
-        HiveUser.create(hive_id: hive.id, user_id: 2)
+        hive.users << User.find(1)
+        hive.users << User.find(2)
       end
 
       render json: {user_id: @current_user.id}

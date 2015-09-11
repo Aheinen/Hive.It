@@ -5,10 +5,6 @@ ready = function() {
     // chatEndPoint: 'pusher-realtime-chat-widget/src/php/chat.php'
   });
 
-  console.log(gon.mapped_messages)
-
-
-
   $(document).on('click', '.bee-img', function(event) {
     event.preventDefault();
     var message = $(this).parent().attr('class');

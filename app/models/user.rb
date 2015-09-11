@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   has_many :rhythm_users
+  has_many :rhythms, through: :rhythm_users
   has_many :hive_users
+  has_many :hives, through: :hive_users
   has_many :competency_users
+  has_many :competencies, through: :competency_users
   has_many :questions
   has_many :messages
 
