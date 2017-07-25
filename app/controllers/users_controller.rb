@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def show
     @competencies = current_user.competencies
     @rhythms = current_user.rhythms
-    @hives = current_users.hives
+    @hives = current_user.hives
   end
 
 end
